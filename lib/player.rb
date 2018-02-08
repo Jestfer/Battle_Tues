@@ -1,12 +1,20 @@
 class Player
-
   MAX_HP = 100
+  BASIC_ATTACK = 10
 
-  attr_reader :name, :hit_points
+  attr_reader :name
+  attr_accessor :hp
 
   def initialize(name)
     @name = name
-    @hit_points = MAX_HP
+    @hp = MAX_HP
   end
 
+  def attack(player)
+    player.is_damaged
+  end
+
+  def is_damaged
+    @hp -= 10
+  end
 end
