@@ -1,5 +1,10 @@
-<%= @player_1.name %> attacks <%= @player_2.name %><br>
-<%= @player_2.name %>: <%= @player_2.hp %> HP remaining
+<% if @turn == 0 %>
+  <%= @player_1.name %> attacks <%= @player_2.name %><br>
+  <%= @player_2.name %>: <%= @player_2.hp %> HP remaining
+<% elsif @turn == 1 %>
+  <%= @player_2.name %> attacks <%= @player_1.name %><br>
+  <%= @player_1.name %>: <%= @player_1.hp %> HP remaining
+<% end %>
 
 <form action="/play">
   <input type="submit" value="Next turn">

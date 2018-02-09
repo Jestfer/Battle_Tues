@@ -20,6 +20,7 @@ class Battle < Sinatra::Base
   get '/play' do
     @player_1 = $game.players[0]
     @player_2 = $game.players[1]
+    @turn = $game.turn
     erb(:players)
   end
 
@@ -27,7 +28,7 @@ class Battle < Sinatra::Base
     @player_1 = $game.players[0]
     @player_2 = $game.players[1]
     @turn = $game.turn
-    $game.attack(@player_1, @player_2)
+    $game.attack
     erb(:player_1_attacks)
   end
 

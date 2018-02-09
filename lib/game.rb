@@ -6,8 +6,8 @@ class Game
     @turn = 0
   end
 
-  def attack(player_1, player_2)
-    player_2.is_damaged
+  def attack
+    @turn == 0 ? @players[1].is_damaged : @players[0].is_damaged
     change_turn
   end
 

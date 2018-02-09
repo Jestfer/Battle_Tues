@@ -5,7 +5,7 @@
 <form action="/player_1_attacks">
   <% if @turn == 0 %>
     <input type="submit" value="Attack player 2">
-  <% else %>
+  <% elsif @turn == 1 %>
     <input type="submit" value="Attack player 1">
   <% end %>
 </form>
