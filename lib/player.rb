@@ -10,10 +10,6 @@ class Player
     @hp = MAX_HP
   end
 
-  def attack(player)
-    player.is_damaged
-  end
-
   def is_damaged
     @hp -= 10
   end
