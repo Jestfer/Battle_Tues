@@ -1,11 +1,33 @@
-<% if @turn == 0 %>
-  <%= @player_1.name %> attacks <%= @player_2.name %><br>
-  <%= @player_2.name %>: <%= @player_2.hp %> HP remaining
-<% elsif @turn == 1 %>
-  <%= @player_2.name %> attacks <%= @player_1.name %><br>
-  <%= @player_1.name %>: <%= @player_1.hp %> HP remaining
-<% end %>
+<style media="screen">
+  .gameover{
+    background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VGiBmTeaeilt7mgjb/game-over-retro-arcade-digital-blue-style-1_nngybqf7pg__F0000.png');
+    width: 100%;
+    height: 100%;
+  }
+  .gameover-text{
+    color: white;
+    text-align: center;
+  }
+</style>
 
-<form action="/play">
-  <input type="submit" value="Next turn">
-</form>
+<% if @player_1.hp == 0 %>
+  <div class="gameover">
+    <h1 class="gameover-text"><%= @player_1.name %> has lost the battle. Sorry mate!</h1>
+  </div>
+<% elsif @player_2.hp == 0 %>
+  <div class="gameover">
+    <h1 class="gameover-text"><%= @player_2.name %> has lost the battle. Sorry mate!</h1>
+  </div>
+<% else %>
+  <% if @turn == 0 %>
+    <%= @player_1.name %> attacks <%= @player_2.name %><br>
+    <%= @player_2.name %>: <%= @player_2.hp %> HP remaining
+  <% elsif @turn == 1 %>
+    <%= @player_2.name %> attacks <%= @player_1.name %><br>
+    <%= @player_1.name %>: <%= @player_1.hp %> HP remaining
+  <% end %>
+
+  <form action="/play">
+    <input type="submit" value="Next turn">
+  </form>
+<% end %>
