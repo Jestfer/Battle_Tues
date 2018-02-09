@@ -3,5 +3,9 @@
 <%= @player_2.name %> has <%= @player_2.hp %> HP.<br>
 <br>
 <form action="/player_1_attacks">
-  <input type="submit" value="Attack player 2">
+  <% if @turn == 0 %>
+    <input type="submit" value="Attack player 2">
+  <% else %>
+    <input type="submit" value="Attack player 1">
+  <% end %>
 </form>
